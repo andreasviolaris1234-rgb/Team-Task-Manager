@@ -1,4 +1,4 @@
-Team Task Manager
+#Team Task Manager
 A simple task-management application created by three interns using React, JavaScript, CSS, and browser localStorage.
 The application allows users to create, edit, delete, assign, search, filter, and organise tasks.
 This is a beginner-friendly project. It does not use a server, Express, an external API, or an external database.
