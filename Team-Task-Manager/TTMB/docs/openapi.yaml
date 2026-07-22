@@ -1,0 +1,247 @@
+openapi: 3.1.0
+info:
+  title: Team Task Manager API
+  version: 1.0.0
+  description: REST API for persistent task management and statistics.
+servers:
+  - url: http://127.0.0.1:3000
+security:
+  - bearerAuth: []
+paths:
+  /api/meta:
+    get:
+      summary: Get allowed task options and defaults
+      security: []
+      responses:
+        "200": { description: Task metadata returned }
+  /api/auth/register:
+    post:
+      summary: Register a user and issue a JWT
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/RegisterInput" }
+      responses:
+        "201": { description: Account created }
+        "409": { description: Email already registered }
+        "422": { description: Validation failed }
+        "429": { description: Too many attempts }
+  /api/auth/login:
+    post:
+      summary: Authenticate and issue a JWT
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/LoginInput" }
+      responses:
+        "200": { description: Authentication successful }
+        "401": { description: Invalid credentials }
+        "429": { description: Too many attempts }
+  /api/auth/me:
+    get:
+      summary: Return the authenticated user
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Current user }
+        "401": { description: Missing, invalid, or expired token }
+  /api/auth/logout:
+    post:
+      summary: Clear the browser session cookie
+      security: []
+      responses:
+        "200": { description: Signed out }
+  /api/auth/forgot-password:
+    post:
+      summary: Request a one-time password-reset token
+      security: []
+      responses:
+        "200": { description: Generic recovery response }
+        "429": { description: Too many attempts }
+  /api/auth/reset-password:
+    post:
+      summary: Change password using a valid one-time token
+      security: []
+      responses:
+        "200": { description: Password changed }
+        "400": { description: Token invalid or expired }
+        "422": { description: Invalid token or password input }
+  /api/teams:
+    get:
+      summary: List teams for the authenticated user
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Team list }
+        "401": { description: Authentication required }
+    post:
+      summary: Create a team owned by the authenticated user
+      security: [{ bearerAuth: [] }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name]
+              properties:
+                name: { type: string, minLength: 2, maxLength: 80 }
+      responses:
+        "201": { description: Team created }
+        "422": { description: Invalid team name }
+  /api/teams/{teamId}:
+    parameters:
+      - { name: teamId, in: path, required: true, schema: { type: string } }
+    get:
+      summary: Get a team visible to the authenticated member
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Team returned }
+        "403": { description: Membership required }
+        "404": { description: Team not found }
+    patch:
+      summary: Rename a team (owner only)
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Team updated }
+        "403": { description: Owner role required }
+    delete:
+      summary: Delete a team (owner only)
+      security: [{ bearerAuth: [] }]
+      responses:
+        "200": { description: Team deleted }
+        "403": { description: Owner role required }
+  /api/teams/{teamId}/members:
+    post:
+      summary: Add an existing user by email (owner only)
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { name: teamId, in: path, required: true, schema: { type: string } }
+      responses:
+        "200": { description: Member added }
+        "403": { description: Owner role required }
+        "404": { description: User or team not found }
+        "409": { description: User already belongs to team }
+  /api/teams/{teamId}/members/{userId}:
+    delete:
+      summary: Remove a team member (owner only)
+      security: [{ bearerAuth: [] }]
+      parameters:
+        - { name: teamId, in: path, required: true, schema: { type: string } }
+        - { name: userId, in: path, required: true, schema: { type: string } }
+      responses:
+        "200": { description: Member removed }
+        "403": { description: Owner role required }
+        "404": { description: Team member not found }
+  /health:
+    get:
+      summary: Service health check
+      security: []
+      responses:
+        "200": { description: Healthy }
+  /api/tasks:
+    get:
+      summary: List and filter tasks
+      parameters:
+        - { name: status, in: query, schema: { $ref: "#/components/schemas/Status" } }
+        - { name: priority, in: query, schema: { $ref: "#/components/schemas/Priority" } }
+        - { name: assignee, in: query, schema: { type: string } }
+        - { name: q, in: query, description: Case-insensitive title and description search, schema: { type: string } }
+      responses:
+        "200": { description: Task list }
+        "400": { description: Invalid filter }
+    post:
+      summary: Create a task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/TaskInput" }
+      responses:
+        "201": { description: Task created }
+        "422": { description: Validation failed }
+  /api/tasks/statistics:
+    get:
+      summary: Get aggregate task statistics
+      responses:
+        "200": { description: Statistics returned }
+  /api/tasks/reset:
+    post:
+      summary: Replace tasks with sample data
+      responses:
+        "200": { description: Tasks reset }
+  /api/tasks/{taskId}:
+    parameters:
+      - { name: taskId, in: path, required: true, schema: { type: string } }
+    get:
+      summary: Find a task
+      responses:
+        "200": { description: Task found }
+        "404": { description: Task not found }
+    patch:
+      summary: Partially update a task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: "#/components/schemas/TaskInput" }
+      responses:
+        "200": { description: Task updated }
+        "404": { description: Task not found }
+        "422": { description: Validation failed }
+    delete:
+      summary: Delete a task
+      responses:
+        "200": { description: Task deleted }
+        "404": { description: Task not found }
+  /api/tasks/{taskId}/status:
+    patch:
+      summary: Move a task to another status
+      parameters:
+        - { name: taskId, in: path, required: true, schema: { type: string } }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { $ref: "#/components/schemas/Status" }
+      responses:
+        "200": { description: Task moved }
+        "400": { description: Invalid status }
+        "404": { description: Task not found }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Status: { type: string, enum: [todo, in-progress, done] }
+    Priority: { type: string, enum: [low, medium, high] }
+    TaskInput:
+      type: object
+      properties:
+        title: { type: string, minLength: 2, maxLength: 120 }
+        description: { type: string, maxLength: 1000 }
+        priority: { $ref: "#/components/schemas/Priority" }
+        status: { $ref: "#/components/schemas/Status" }
+        assignee: { type: string }
+        dueDate: { type: [string, "null"], format: date }
+    RegisterInput:
+      type: object
+      required: [name, email, password]
+      properties:
+        name: { type: string, minLength: 2, maxLength: 80 }
+        email: { type: string, format: email, maxLength: 254 }
+        password: { type: string, format: password, minLength: 8, maxLength: 128 }
+    LoginInput:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string, format: password }

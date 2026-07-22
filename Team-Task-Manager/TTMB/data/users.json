@@ -1,0 +1,95 @@
+[
+  {
+    "id": "4b221b0b-13cc-4826-a9e5-f8722d59070a",
+    "name": "andreasviolaris",
+    "email": "andreasviolaris1234@gmail.com",
+    "passwordSalt": "DXxJWETHtAGKx2g0Hs8bIQ==",
+    "passwordHash": "6bPvU3w+mQlYp4ux0VsdJhqDkGlA41TL5LTGqNneWWnllEWsJaY5gssks5oPF+2T7G009zufnAzkuCWJYNdxlg==",
+    "createdAt": "2026-07-21T09:16:36.957Z",
+    "updatedAt": "2026-07-22T08:02:16.335Z",
+    "tokenVersion": 2
+  },
+  {
+    "id": "224a7481-f001-45db-b2d6-01aa1979c5ea",
+    "name": "UI Test User",
+    "email": "ui-check-3e9bbaca@example.com",
+    "passwordSalt": "FIwb0sARuHyo95B3nNWy2Q==",
+    "passwordHash": "m2SvMqTasTFwxJyzPiDloM3m2jG4PXajK6yokSpJ4luT1Eneoe41Qc4t4+YcMeZQM3G7TYRIKchFr4PAkInxuw==",
+    "createdAt": "2026-07-21T09:18:28.559Z",
+    "updatedAt": "2026-07-21T09:18:28.559Z"
+  },
+  {
+    "id": "28348f5c-4bc4-4718-84d5-6d88b1c6f605",
+    "name": "andreasviolaris",
+    "email": "nottsm19@gmail.com",
+    "passwordSalt": "eoZrJVLDjdNVlbKfOA1qIA==",
+    "passwordHash": "aSOBKWBUDpCQ+5P4jgq7MTlu37cbXfnW0j0YC+MmXP1ds+M0X4G0N55DbRrvpff3ex3JdU11FXxr7juYb575aQ==",
+    "createdAt": "2026-07-21T09:19:48.523Z",
+    "updatedAt": "2026-07-21T09:19:48.523Z"
+  },
+  {
+    "id": "1f73f2ee-8134-4ede-b328-179f10d70a99",
+    "name": "Reset User",
+    "email": "reset-live-8d3e644b@example.com",
+    "passwordSalt": "W+uWECncjDGCu0vODhrohg==",
+    "passwordHash": "YFnk1PKwpLf9rkXzmZ7mnt0WkjPx4fMdMRKKEPgD5he0i99JZ77POlirzPevWW88OpSDu9lHgS48PrwrDr9ytA==",
+    "createdAt": "2026-07-21T09:24:00.240Z",
+    "updatedAt": "2026-07-21T09:24:00.292Z"
+  },
+  {
+    "id": "a6c90304-28f0-47ca-a135-da45d7d7c147",
+    "name": "Cookie User",
+    "email": "cookie-9ce5d530@example.com",
+    "passwordSalt": "dwWygAA+gWv2K+YPAUNLOQ==",
+    "passwordHash": "LQOoB8SHbUTdhgky+Jp5Ck/56H8o0Kzm/5ZQxuPYxYvetUMjWFU9o7HQ+U8K2ouduJxS0HanipLrA/8RnqshrA==",
+    "createdAt": "2026-07-21T10:04:25.542Z",
+    "updatedAt": "2026-07-21T10:04:25.542Z"
+  },
+  {
+    "id": "06a32cd5-0b34-4934-b409-45a940506ed6",
+    "name": "Owner A",
+    "email": "a-cfe15c1d@example.com",
+    "passwordSalt": "HpSvuVX72jQwUpMniwhSzw==",
+    "passwordHash": "mALdM7ydATIxWL8YL/bKMwFKcKqosJLTi4xj+BxdBGr2pmQ2rfOwqcX6+F1Rnj4gJGldtwQd7oPbPnSWUBNvmg==",
+    "createdAt": "2026-07-22T07:28:24.463Z",
+    "updatedAt": "2026-07-22T07:28:24.463Z"
+  },
+  {
+    "id": "c94397e3-86ca-4f1b-852b-952411e6aad4",
+    "name": "User B",
+    "email": "b-cfe15c1d@example.com",
+    "passwordSalt": "YHLSya/4dy0KgSUgBNT1kQ==",
+    "passwordHash": "CEdAjue5i0Dlt3JFO0v5Z6yO1XOr66SULhz3t9AghNFYtm/xRELAxdfMtIIyPYqBO+LLGsk62kzozCg2LTR+mg==",
+    "createdAt": "2026-07-22T07:28:24.504Z",
+    "updatedAt": "2026-07-22T07:28:24.504Z"
+  },
+  {
+    "id": "57be6c3f-a65f-44e6-b29c-69fcdaf48fe5",
+    "name": "Handoff User",
+    "email": "handoff-cdf5ceb7@example.com",
+    "passwordSalt": "i1I+GkWO90BL7obLUavUKQ==",
+    "passwordHash": "4zCv3UgaVeGDI9l3RLtTeSJFMr4qUGlxniSdfTh2Cjrc3x7Fn1fj8W3FJ8eiIjogKRmsJ6E2pOO66lF5CI6BFg==",
+    "createdAt": "2026-07-22T07:37:47.840Z",
+    "updatedAt": "2026-07-22T07:37:47.840Z"
+  },
+  {
+    "id": "68d679cf-7a98-46c4-baac-e23c084b75a3",
+    "name": "Revoke User",
+    "email": "revoke-44e2119d@example.com",
+    "passwordSalt": "L7Z/49AJg315nfuNWDaKdg==",
+    "passwordHash": "VYRkWEDO1IMzOBQrhbMISzmAEWwjiMoWp0lJA8DfOMiNRJPlax2lVKN2qOd6JVziJx/ebyXQMViRJz44lNw6Rw==",
+    "tokenVersion": 1,
+    "createdAt": "2026-07-22T07:53:32.239Z",
+    "updatedAt": "2026-07-22T07:53:32.283Z"
+  },
+  {
+    "id": "a9742b46-76d4-4c00-8856-e4b1f1feb413",
+    "name": "andreas",
+    "email": "nottsm17@gmail.com",
+    "passwordSalt": "cHPXlZ8HzC/a8Lz/LAxcoQ==",
+    "passwordHash": "/sf9y0UtTNfzFvqH1myQLGmyzaO9owhjdvlQeWPYe173Nv6ZuNC2UiILJZIeDhz7hPkjqRSNav8tvfKK9MpNog==",
+    "tokenVersion": 0,
+    "createdAt": "2026-07-22T08:02:48.425Z",
+    "updatedAt": "2026-07-22T08:02:48.425Z"
+  }
+]

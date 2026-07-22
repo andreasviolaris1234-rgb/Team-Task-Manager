@@ -1,0 +1,103 @@
+[
+  {
+    "id": "sample-prepare-brief",
+    "title": "Prepare project brief",
+    "description": "Agree on scope and milestones.",
+    "priority": "high",
+    "status": "todo",
+    "assignee": "Intern 1",
+    "dueDate": "2026-07-28",
+    "createdAt": "2026-07-15T09:00:00.000Z",
+    "updatedAt": "2026-07-15T09:00:00.000Z"
+  },
+  {
+    "id": "sample-review-copy",
+    "title": "Review interface copy",
+    "description": "Check labels and empty states.",
+    "priority": "low",
+    "status": "todo",
+    "assignee": "",
+    "dueDate": null,
+    "createdAt": "2026-07-16T10:00:00.000Z",
+    "updatedAt": "2026-07-16T10:00:00.000Z"
+  },
+  {
+    "id": "sample-build-board",
+    "title": "Build task board",
+    "description": "Implement the three status columns.",
+    "priority": "high",
+    "status": "in-progress",
+    "assignee": "Intern 1",
+    "dueDate": "2026-07-30",
+    "createdAt": "2026-07-17T11:00:00.000Z",
+    "updatedAt": "2026-07-17T11:00:00.000Z"
+  },
+  {
+    "id": "sample-storage-layer",
+    "title": "Create storage layer",
+    "description": "Add validation and local persistence.",
+    "priority": "medium",
+    "status": "in-progress",
+    "assignee": "Intern 3",
+    "dueDate": null,
+    "createdAt": "2026-07-18T12:00:00.000Z",
+    "updatedAt": "2026-07-18T12:00:00.000Z"
+  },
+  {
+    "id": "sample-wireframes",
+    "title": "Approve wireframes",
+    "description": "Confirm the initial responsive layout.",
+    "priority": "medium",
+    "status": "done",
+    "assignee": "Intern 2",
+    "dueDate": "2026-07-20",
+    "createdAt": "2026-07-12T08:00:00.000Z",
+    "updatedAt": "2026-07-12T08:00:00.000Z"
+  },
+  {
+    "id": "sample-repository",
+    "title": "Create repository",
+    "description": "Set up the shared project repository.",
+    "priority": "low",
+    "status": "done",
+    "assignee": "",
+    "dueDate": null,
+    "createdAt": "2026-07-10T07:00:00.000Z",
+    "updatedAt": "2026-07-10T07:00:00.000Z"
+  },
+  {
+    "description": "",
+    "priority": "medium",
+    "status": "todo",
+    "assignee": "",
+    "dueDate": null,
+    "title": "Secure cookie task",
+    "id": "2b1e4231-3fdf-4dbe-8834-5543c7aa482b",
+    "createdAt": "2026-07-21T10:04:25.558Z",
+    "updatedAt": "2026-07-21T10:04:25.558Z"
+  },
+  {
+    "description": "",
+    "priority": "medium",
+    "status": "todo",
+    "assignee": "",
+    "dueDate": null,
+    "title": "Private owner task",
+    "id": "534a70db-d710-4a92-85d5-5e745c56b484",
+    "ownerId": "06a32cd5-0b34-4934-b409-45a940506ed6",
+    "createdAt": "2026-07-22T07:28:24.511Z",
+    "updatedAt": "2026-07-22T07:28:24.511Z"
+  },
+  {
+    "description": "",
+    "priority": "medium",
+    "status": "todo",
+    "assignee": "",
+    "dueDate": null,
+    "title": "Frontend integration ready",
+    "id": "b2d29c4d-6742-447f-9c4d-654be708e1a5",
+    "ownerId": "57be6c3f-a65f-44e6-b29c-69fcdaf48fe5",
+    "createdAt": "2026-07-22T07:37:47.855Z",
+    "updatedAt": "2026-07-22T07:37:47.855Z"
+  }
+]

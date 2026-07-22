@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Team Task Manager"><title>Taskflow</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/password.css">
+</head>
+<body>
+  <div id="auth-view" class="auth-shell">
+    <section class="brand-panel"><span class="logo">TF</span><div><p class="eyebrow">TEAM TASK MANAGER</p><h1>Move work<br>forward.</h1><p>One focused workspace for tasks, priorities and teams.</p></div></section>
+      <section class="auth-panel"><form id="auth-form"><p class="eyebrow">WELCOME</p><h2 id="auth-title">Sign in</h2><label id="name-field" hidden>Name<input id="name" autocomplete="name"></label><label>Email<input id="email" type="email" autocomplete="email" required></label><label>Password<div class="password-field"><input id="password" type="password" minlength="8" autocomplete="current-password" required><button id="toggle-password" type="button" aria-label="Show password" aria-pressed="false">Show</button></div></label><p id="auth-error" class="error" hidden></p><button class="primary" type="submit">Continue</button><button id="forgot-password" class="link" type="button">Forgot password?</button><button id="auth-toggle" class="link" type="button">Create an account</button></form></section>
+  </div>
+  <div id="app-view" hidden>
+    <header class="topbar"><div><p class="eyebrow">WORKSPACE</p><h1>Taskflow</h1></div><div class="top-actions"><span id="user-name"></span><button id="logout" class="secondary">Log out</button><button id="new-task" class="primary">+ New task</button></div></header>
+    <main><section id="stats" class="stats"></section><div class="toolbar"><input id="search" type="search" placeholder="Search tasks"><select id="status-filter"><option value="">All statuses</option><option value="todo">To do</option><option value="in-progress">In progress</option><option value="done">Done</option></select><select id="priority-filter"><option value="">All priorities</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select></div><p id="notice" class="notice" hidden></p><section id="board" class="board"></section></main>
+  </div>
+  <dialog id="task-dialog"><form id="task-form"><header><div><p class="eyebrow">TASK DETAILS</p><h2 id="task-form-title">New task</h2></div><button type="button" id="close-dialog" class="icon">×</button></header><input id="task-id" type="hidden"><label>Title<input id="title" minlength="2" maxlength="120" required></label><label>Description<textarea id="description" maxlength="1000" rows="4"></textarea></label><div class="grid"><label>Priority<select id="priority"><option>low</option><option selected>medium</option><option>high</option></select></label><label>Status<select id="status"><option value="todo">To do</option><option value="in-progress">In progress</option><option value="done">Done</option></select></label><label>Assignee<input id="assignee"></label><label>Due date<input id="due-date" type="date"></label></div><p id="task-error" class="error" hidden></p><footer><button type="button" id="cancel-dialog" class="secondary">Cancel</button><button class="primary">Save task</button></footer></form></dialog>
+  <dialog id="reset-dialog"><form id="reset-form"><header><div><p class="eyebrow">ACCOUNT RECOVERY</p><h2>Reset password</h2></div><button type="button" id="close-reset" class="icon">×</button></header><label>Email<input id="reset-email" type="email" required></label><button id="request-reset" class="secondary" type="button">Create reset token</button><label>Reset token<input id="reset-token" required></label><label>New password<div class="password-field"><input id="new-password" type="password" minlength="8" autocomplete="new-password" required><button id="toggle-new-password" type="button" aria-label="Show new password" aria-pressed="false">Show</button></div></label><p id="reset-message" class="notice" hidden></p><footer><button type="button" id="cancel-reset" class="secondary">Cancel</button><button class="primary">Change password</button></footer></form></dialog>
+  <script type="module" src="/app.js"></script>
+</body></html>
